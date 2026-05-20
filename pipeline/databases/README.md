@@ -19,3 +19,7 @@ A script that inserts a new row in the table first_table.
 ## `4-best_score.sql`
 
 A script that lists all records with a score >= 10 in the table second_table.
+
+## `5-average.sql`
+
+A script that computes the score average of all records in the table second_table.
