@@ -27,3 +27,8 @@ A script that computes the score average of all records in the table second_tabl
 ## `6-avg_temperatures.sql`
 
 A script that displays the average temperature (Fahrenheit) by city ordered by temperature (descending).
+
+## `7-max_state.sql`
+
+A script that displays the max temperature of each state (ordered by State name).
+
