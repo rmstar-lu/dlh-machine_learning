@@ -15,3 +15,7 @@ A script that lists all rows of the table first_table.
 ## `3-insert_value.sql`
 
 A script that inserts a new row in the table first_table.
+
+## `4-best_score.sql`
+
+A script that lists all records with a score >= 10 in the table second_table.
