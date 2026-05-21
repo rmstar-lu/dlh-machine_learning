@@ -152,3 +152,6 @@ A script to create an index on the first character of the name column and the sc
 
 A script to create a view on the students table to list all students that have a score < 80 and no last_meeting or more than 1 month.
 
+## `103-average_weighted_score.sql`
+
+A stored procedure that computes and stores the weighted average of scores.
