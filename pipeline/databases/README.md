@@ -115,3 +115,7 @@ A python function to return all documents from a Mongo collection.
 ## `31-insert_school.py`
 
 A python function to insert a new document in a Mongo collection based on kwargs.
+
+## `32-update_topics.py`
+
+A python function to change all topics of a school document based on the name.
