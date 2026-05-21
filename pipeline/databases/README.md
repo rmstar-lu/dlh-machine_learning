@@ -84,6 +84,10 @@ A script that creates a stored procedure to add a new correction for a student.
 
 A script that creates a stored procedure to compute and store the average score for a student.
 
+## `21-div.sql`
+
+A script that creates a function to safely divide two integers.
+
 ## `22-list_databases`
 
 A script that lists all databases in MongoDB.
