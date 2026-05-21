@@ -68,3 +68,7 @@ A script that ranks country origins of bands, ordered by the number of (non-uniq
 
 A script that lists all bands with Glam rock as their main style, ranked by their longevity.
 
+## `17-store.sql`
+
+A script that creates a trigger that decreases the quantity of an item after adding a new order.
+
