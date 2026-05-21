@@ -47,3 +47,7 @@ A script that lists all genres from hbtn_0d_tvshows and displays the number of s
 ## `11-rating_shows.sql`
 
 A script that lists all shows from hbtn_0d_tvshows_rate by their rating.
+
+## `12-rating_genres.sql`
+
+A script that lists all genres in the database hbtn_0d_tvshows_rate by their rating.
