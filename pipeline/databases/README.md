@@ -83,3 +83,7 @@ A script that lists all databases in MongoDB.
 ## `23-use_or_create_database`
 
 A script to create or use database my_db.
+
+## `24-insert`
+
+A script to insert one record into a database.
