@@ -80,3 +80,6 @@ A script that creates a trigger that resets the attribute `valid_email` to 0 onl
 
 A script that lists all databases in MongoDB.
 
+## `23-use_or_create_database`
+
+A script to create or use database my_db.
