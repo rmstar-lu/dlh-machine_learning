@@ -104,3 +104,8 @@ A script to get the number of documents in the collection school.
 
 A script to add a new attribute to update all documents in the collection school matching a certain name.
 
+## `29-delete`
+
+A script to delete all documents match a certain name from the collection school.
+
+
