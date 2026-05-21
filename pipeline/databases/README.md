@@ -108,4 +108,7 @@ A script to add a new attribute to update all documents in the collection school
 
 A script to delete all documents match a certain name from the collection school.
 
+## `30-all`
+
+A python function to return all documents from a Mongo collection.
 
