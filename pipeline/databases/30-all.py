@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ 30-all list all documents in a collection. """
 
 import pymongo
