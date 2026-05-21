@@ -112,3 +112,6 @@ A script to delete all documents match a certain name from the collection school
 
 A python function to return all documents from a Mongo collection.
 
+## `31-insert_school.py`
+
+A python function to insert a new document in a Mongo collection based on kwargs.
