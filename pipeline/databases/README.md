@@ -140,7 +140,11 @@ A python function that returns the list of school having a specific topic.
 
 A python script that provides some stats about nginx logs stored in MongoDB.
 
-## `35-index_my_names.sql`
+## `100-index_my_names.sql`
 
 A script to create an index on the first character of the name column.
+
+## `101-index_name_score.sql`
+
+A script to create an index on the first character of the name column and the score.
 
