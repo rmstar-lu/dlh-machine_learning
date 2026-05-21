@@ -155,3 +155,7 @@ A script to create a view on the students table to list all students that have a
 ## `103-average_weighted_score.sql`
 
 A stored procedure that computes and stores the weighted average of scores.
+
+## `104-find`
+
+A script to find all documents with a name starting by Holberton in the collection school.
