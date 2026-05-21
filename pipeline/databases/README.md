@@ -86,4 +86,9 @@ A script to create or use database my_db.
 
 ## `24-insert`
 
-A script to insert one record into a database.
+A script to insert one record into the collection school.
+
+## `25-all`
+
+A script to list all documents in the collection school.
+
