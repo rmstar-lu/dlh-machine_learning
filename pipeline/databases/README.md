@@ -55,3 +55,7 @@ A script that lists all genres in the database hbtn_0d_tvshows_rate by their rat
 ## `13-uniq_users.sql`
 
 A script that creates a table users with auto increment primary key and a unique column.
+
+## `14-country_users.sql`
+
+A script that creates a table users with auto increment primary key, a unique column and an enum column.
