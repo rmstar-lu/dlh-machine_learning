@@ -159,3 +159,8 @@ A stored procedure that computes and stores the weighted average of scores.
 ## `104-find`
 
 A script to find all documents with a name starting by Holberton in the collection school.
+
+## `105-students`
+
+A script to compute the average score grouped by student and return students sorted descending by average score.
+
