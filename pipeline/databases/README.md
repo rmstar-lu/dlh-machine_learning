@@ -76,6 +76,10 @@ A script that creates a trigger that decreases the quantity of an item after add
 
 A script that creates a trigger that resets the attribute `valid_email` to 0 only when the email has been changed.
 
+## `19-bonus.sql`
+
+A script that creates a stored procedure to add a new correction for a student.
+
 ## `22-list_databases`
 
 A script that lists all databases in MongoDB.
