@@ -80,6 +80,10 @@ A script that creates a trigger that resets the attribute `valid_email` to 0 onl
 
 A script that creates a stored procedure to add a new correction for a student.
 
+## `20-average_score.sql`
+
+A script that creates a stored procedure to compute and store the average score for a student.
+
 ## `22-list_databases`
 
 A script that lists all databases in MongoDB.
