@@ -134,5 +134,9 @@ A python function to change all topics of a school document based on the name.
 
 ## `33-schools_by_topic.py`
 
-A Python function that returns the list of school having a specific topic.
+A python function that returns the list of school having a specific topic.
+
+## `34-log_stats.py`
+
+A python script that provides some stats about nginx logs stored in MongoDB.
 
