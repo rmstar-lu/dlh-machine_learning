@@ -43,3 +43,7 @@ A script that lists all shows contained in hbtn_0d_tvshows without a genre linke
 ## `10-count_shows_by_genre.sql`
 
 A script that lists all genres from hbtn_0d_tvshows and displays the number of shows linked to each.
+
+## `11-rating_shows.sql`
+
+A script that lists all shows from hbtn_0d_tvshows_rate by their rating.
