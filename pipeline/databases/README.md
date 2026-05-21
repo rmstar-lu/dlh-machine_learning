@@ -92,3 +92,7 @@ A script to insert one record into the collection school.
 
 A script to list all documents in the collection school.
 
+## `26-match`
+
+A script to list all documents with a certain name in the collection school.
+
