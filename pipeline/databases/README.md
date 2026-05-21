@@ -64,3 +64,7 @@ A script that creates a table users with auto increment primary key, a unique co
 
 A script that ranks country origins of bands, ordered by the number of (non-unique) fans.
 
+## `16-glam_rock.sql`
+
+A script that lists all bands with Glam rock as their main style, ranked by their longevity.
+
