@@ -59,3 +59,8 @@ A script that creates a table users with auto increment primary key and a unique
 ## `14-country_users.sql`
 
 A script that creates a table users with auto increment primary key, a unique column and an enum column.
+
+## `15-fans.sql`
+
+A script that ranks country origins of bands, ordered by the number of (non-unique) fans.
+
