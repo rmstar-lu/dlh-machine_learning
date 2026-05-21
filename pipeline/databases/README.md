@@ -148,3 +148,7 @@ A script to create an index on the first character of the name column.
 
 A script to create an index on the first character of the name column and the score.
 
+## `102-need_meeting.sql`
+
+A script to create a view on the students table to list all students that have a score < 80 and no last_meeting or more than 1 month.
+
