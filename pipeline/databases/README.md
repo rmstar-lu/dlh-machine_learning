@@ -51,3 +51,7 @@ A script that lists all shows from hbtn_0d_tvshows_rate by their rating.
 ## `12-rating_genres.sql`
 
 A script that lists all genres in the database hbtn_0d_tvshows_rate by their rating.
+
+## `13-uniq_users.sql`
+
+A script that creates a table users with auto increment primary key and a unique column.
