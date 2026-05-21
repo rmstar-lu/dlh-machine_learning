@@ -32,3 +32,6 @@ A script that displays the average temperature (Fahrenheit) by city ordered by t
 
 A script that displays the max temperature of each state (ordered by State name).
 
+## `8-genre_id_by_show.sql`
+
+A script that lists all shows contained in hbtn_0d_tvshows that have at least one genre linked.
