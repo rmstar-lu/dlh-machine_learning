@@ -131,3 +131,8 @@ A python function to insert a new document in a Mongo collection based on kwargs
 ## `32-update_topics.py`
 
 A python function to change all topics of a school document based on the name.
+
+## `33-schools_by_topic.py`
+
+A Python function that returns the list of school having a specific topic.
+
