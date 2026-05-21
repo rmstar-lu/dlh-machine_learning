@@ -100,3 +100,7 @@ A script to list all documents with a certain name in the collection school.
 
 A script to get the number of documents in the collection school.
 
+## `28-update`
+
+A script to add a new attribute to update all documents in the collection school matching a certain name.
+
