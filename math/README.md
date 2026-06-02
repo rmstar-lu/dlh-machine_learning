@@ -1,5 +1,5 @@
 # DLH Machine Learning
 
-## Math
+## Linear algebra
 
-Math
+Linear algebra
