@@ -1,0 +1,18 @@
+# Linear algebra
+
+## `0-slice_me_up.py`
+
+Slicing.
+
+## `1-trim_me_down.py`
+
+Build a matrix containing the middle columns of another matrix.
+
+## `2-size_me_please.py`
+
+A function to calculate the shape of a matrix.
+
+## `3-flip_me_over.py`
+
+A function to transpose a 2D matrix.
+
