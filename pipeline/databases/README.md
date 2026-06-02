@@ -164,3 +164,7 @@ A script to find all documents with a name starting by Holberton in the collecti
 
 A script to compute the average score grouped by student and return students sorted descending by average score.
 
+## `106-log_stats.py`
+
+Improved version of 32-log_stats.py adding the top 10 of the most present IPs in the collection nginx of the database logs.
+
