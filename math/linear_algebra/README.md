@@ -16,3 +16,8 @@ A function to calculate the shape of a matrix.
 
 A function to transpose a 2D matrix.
 
+## `4-line_up.py`
+
+A function to add two arrays element-wise.
+
+
