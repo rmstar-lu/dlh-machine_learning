@@ -23,3 +23,7 @@ A function to add two arrays element-wise.
 ## `5-across_the_planes.py`
 
 A function to add two 2D matrices.
+
+## `6-howdy_partner.py`
+
+A function to concatenate two arrays.
