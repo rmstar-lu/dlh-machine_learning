@@ -20,4 +20,6 @@ A function to transpose a 2D matrix.
 
 A function to add two arrays element-wise.
 
+## `5-across_the_planes.py`
 
+A function to add two 2D matrices.
