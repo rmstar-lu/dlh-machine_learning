@@ -10,4 +10,10 @@ def cat_matrices2D(mat1, mat2, axis=0):
         if len(mat1) != len(mat2):
             return None
         return [row1 + row2 for row1, row2 in zip(mat1, mat2)]
+    if len(mat1) == 0:
+        return [row2.copy() for row2 in mat2]
+    if len(mat2) == 0:
+        return [row1.copy() for row1 in mat1]
+    if len(mat1[0]) != len(mat2[0]):
+        return None
     return [row1.copy() for row1 in mat1] + [row2.copy() for row2 in mat2]
