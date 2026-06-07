@@ -27,3 +27,7 @@ A function to add two 2D matrices.
 ## `6-howdy_partner.py`
 
 A function to concatenate two arrays.
+
+## `7-gettin_cozy.py`
+
+A function to concatenate two 2D matrices.
