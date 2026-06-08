@@ -40,3 +40,7 @@ A function to multiply two matrices.
 
 Slice matrix using numpy.
 
+## `10-ill_use_my_scale.py`
+
+Get shape of numpy array.
+
