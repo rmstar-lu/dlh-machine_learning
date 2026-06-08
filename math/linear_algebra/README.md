@@ -44,3 +44,7 @@ Slice matrix using numpy.
 
 Get shape of numpy array.
 
+## `11-the_western_exchange.py`
+
+Transpose a numpy array and return a new array.
+
