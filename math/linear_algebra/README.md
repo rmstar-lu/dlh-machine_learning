@@ -31,3 +31,8 @@ A function to concatenate two arrays.
 ## `7-gettin_cozy.py`
 
 A function to concatenate two 2D matrices.
+
+## `8-ridin_bareback.py`
+
+A function to multiply two matrices.
+
