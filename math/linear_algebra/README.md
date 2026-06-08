@@ -36,3 +36,7 @@ A function to concatenate two 2D matrices.
 
 A function to multiply two matrices.
 
+## `9-let_the_butcher_slice_it.py`
+
+Slice matrix using numpy.
+
