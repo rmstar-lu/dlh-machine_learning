@@ -55,5 +55,9 @@ numpy arrays.
 
 ## `13-cats_got_your_tongue.py`
 
-Concatenate two matrices along a specific axis.
+Concatenate two numpy matrices along a specific axis.
+
+## `14-saddle_up.py`
+
+Multiply two numpy matrices.
 
