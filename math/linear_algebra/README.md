@@ -48,3 +48,8 @@ Get shape of numpy array.
 
 Transpose a numpy array and return a new array.
 
+## `12-bracin_the_elements.py`
+
+Perform element-wise addition, subtraction, multiplication, and division on
+numpy arrays.
+
