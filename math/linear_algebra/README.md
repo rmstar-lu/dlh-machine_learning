@@ -48,3 +48,16 @@ Get shape of numpy array.
 
 Transpose a numpy array and return a new array.
 
+## `12-bracin_the_elements.py`
+
+Perform element-wise addition, subtraction, multiplication, and division on
+numpy arrays.
+
+## `13-cats_got_your_tongue.py`
+
+Concatenate two numpy matrices along a specific axis.
+
+## `14-saddle_up.py`
+
+Multiply two numpy matrices.
+
