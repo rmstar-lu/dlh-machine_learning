@@ -15,3 +15,7 @@ Calculate the cofactor matrix of a matrix.
 ## `3-adjugate.py`
 
 Calculate the adjugate matrix of a matrix.
+
+## `4-inverse.py`
+
+Calculate the inverse of a matrix, or return None if the matrix is singular.
