@@ -13,6 +13,8 @@ def definiteness(matrix):
         ev = np.linalg.eigvals(matrix)
     except np.linalg.LinAlgError:
         return None
+    if not np.array_equal(matrix.T, matrix):
+        return None
     if all(ev_i > 0 for ev_i in ev):
         return "Positive definite"
     if all(ev_i >= 0 for ev_i in ev):
