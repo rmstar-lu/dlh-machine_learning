@@ -11,3 +11,7 @@ Calculate the minor matrix of a matrix.
 ## `2-cofactor.py`
 
 Calculate the cofactor matrix of a matrix.
+
+## `3-adjugate.py`
+
+Calculate the adjugate matrix of a matrix.
