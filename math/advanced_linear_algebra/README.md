@@ -19,3 +19,7 @@ Calculate the adjugate matrix of a matrix.
 ## `4-inverse.py`
 
 Calculate the inverse of a matrix, or return None if the matrix is singular.
+
+## `5-definiteness.py`
+
+Calculate definiteness of a numpy matrix.
