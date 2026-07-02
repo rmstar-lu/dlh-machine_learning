@@ -10,7 +10,7 @@ def poly_derivative(poly):
         return None
     # eliminate superfluous trailing 0's
     for i in range(len(poly) - 1, -1, -1):
-        if poly[i] > 0:
+        if poly[i] != 0:
             break
     poly = poly[:i+1]
     deriv = []
