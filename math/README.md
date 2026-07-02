@@ -11,3 +11,7 @@ Determinants, Minor, Cofactor, Adjugate, Inverse, Definiteness
 ## Calculus
 
 Summation and product, series, derivatives, integrals
+
+## Plotting
+
+Matplotlib
