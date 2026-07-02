@@ -10,3 +10,9 @@ Defines a function that calculates the sum of i^2 for i from 1 to n.
 
 Defines a function that calculates the derivative of a polynomial.
 
+## 11-16 are multiple choice answers
+
+## `17-integrate.py`
+
+Defines a function that calculates the integral of a polynomial.
+
