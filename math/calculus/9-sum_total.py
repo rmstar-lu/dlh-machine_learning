@@ -7,5 +7,4 @@ def summation_i_squared(n):
 
     if type(n) not in {int, float} or n < 1 or int(n) != n:
         return None
-    n = int(n)
     return int(n * (n + 1) * (2 * n + 1) / 6)
