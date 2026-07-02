@@ -3,8 +3,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('TKAgg')
+# import matplotlib
+# matplotlib.use('TKAgg')
 
 
 def line():
@@ -19,4 +19,4 @@ def line():
     ax.set(xlim=(0, 10))
 
     # plt.tight_layout()
-    plt.show()
+    # plt.show()
