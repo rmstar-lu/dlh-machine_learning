@@ -6,3 +6,7 @@
 
 Defines a function that calculates the sum of i^2 for i from 1 to n.
 
+## `10-matisse.py`
+
+Defines a function that calculates the derivative of a polynomial.
+
