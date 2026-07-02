@@ -6,11 +6,5 @@ def summation_i_squared(n):
     """ Calculate the sum of i^2 for i from 1 to n """
 
     if type(n) is not int:
-        try:
-            int_n = int(n)
-        except (ValueError, TypeError):
-            return None
-        if int_n != n:
-            return None
-        n = int_n
+        return None
     return int(n * (n + 1) * (2 * n + 1) / 6)
