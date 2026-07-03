@@ -3,8 +3,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('TKAgg')
+# import matplotlib
+# matplotlib.use('TKAgg')
 
 
 def scatter():
@@ -22,4 +22,4 @@ def scatter():
     plt.xlabel("Height (in)")
     plt.ylabel("Weight (lbs)")
 
-    plt.show()
+    # plt.show()
