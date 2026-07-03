@@ -8,3 +8,7 @@ Line graph.
 
 Scatter plot.
 
+## `2-change_scale.py`
+
+Logarithmic plot.
+
