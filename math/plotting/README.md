@@ -12,3 +12,6 @@ Scatter plot.
 
 Logarithmic plot.
 
+## `3-two.py`
+
+Two plots with legend.
