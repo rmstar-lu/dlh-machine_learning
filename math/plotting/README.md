@@ -4,3 +4,7 @@
 
 Line graph.
 
+## `1-scatter.py`
+
+Scatter plot.
+
