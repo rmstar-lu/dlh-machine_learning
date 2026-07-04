@@ -20,7 +20,7 @@ def frequency():
 
     ax.hist(student_grades, bins=np.arange(0, 110, 10), edgecolor='k')
 
-    ax.set(xlim=(0, 100))
+    ax.set(xlim=(0, 100), xticks=10 * np.arange(0, 11))
     ax.set(ylim=(0, 30))
 
     # plt.show()
