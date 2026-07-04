@@ -19,3 +19,7 @@ Two plots with legend.
 ## `4-frequency.py`
 
 Histogram.
+
+## `5-all_in_one.py`
+
+Five plots in one.
