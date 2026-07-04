@@ -34,7 +34,7 @@ def all_in_one():
     np.random.seed(5)
     student_grades = np.random.normal(68, 15, 50)
 
-    fig, ax = plt.subplots(figsize=(6.4, 4.8))
+    fig, ax = plt.subplots(figsize=(6.4, 5.8))
     ax.set_axis_off()
     gs = GridSpec(3, 2, figure=fig)
 
@@ -86,7 +86,7 @@ def all_in_one():
 
     ax.hist(student_grades, bins=np.arange(0, 110, 10), edgecolor='k')
 
-    ax.set(xlim=(0, 100))
+    ax.set(xlim=(0, 100), xticks=10 * np.arange(0, 11))
     ax.set(ylim=(0, 30))
 
     plt.tight_layout()
