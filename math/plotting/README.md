@@ -15,3 +15,7 @@ Logarithmic plot.
 ## `3-two.py`
 
 Two plots with legend.
+
+## `4-frequency.py`
+
+Histogram.
