@@ -16,7 +16,7 @@ def bars():
 
     persons = ["Farrah", "Fred", "Felicia"]
     kinds = ["apples", "bananas", "oranges", "peaches"]
-    colors = ["#E53F2A", "#FEFE54", "#ff8000", "#ffe5b4"]
+    colors = ["red", "yellow", "#ff8000", "#ffe5b4"]
 
     plt.title("Number of Fruit per Person")
     plt.ylabel("Quantity of Fruit")
