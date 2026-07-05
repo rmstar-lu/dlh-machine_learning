@@ -23,3 +23,7 @@ Histogram.
 ## `5-all_in_one.py`
 
 Five plots in one.
+
+## `6-bars.py`
+
+Stacked bar plot.
