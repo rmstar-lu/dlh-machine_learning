@@ -31,7 +31,7 @@ def gradient():
 
     for u, c in zip(unique_z, colors):
         mask = np.floor(z) == u
-        plt.scatter(x[mask], y[mask], marker=".", s=140, color=c)
+        plt.scatter(x[mask], y[mask], marker=".", s=150, color=c)
 
     cbar = fig.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),
                         ax=ax, label="elevation (m)")
