@@ -24,14 +24,15 @@ def gradient():
     plt.ylabel("y coordinate (m)")
 
     cmap = cm.get_cmap('viridis')
-    norm = mcolors.Normalize(np.floor(z.min()), z.max())
+    norm = mcolors.Normalize(z.min(), z.max())
 
-    unique_z = np.unique(np.floor(z))
-    colors = cmap(norm(unique_z))
+    whole_m = z.min() + np.floor(z - z.min())
+    unique_m = np.unique(whole_m)
+    colors = cmap(norm(unique_m))
 
-    for u, c in zip(unique_z, colors):
-        mask = np.floor(z) == u
-        plt.scatter(x[mask], y[mask], marker=".", s=140, color=c)
+    for u, c in zip(unique_m, colors):
+        mask = whole_m == u
+        plt.scatter(x[mask], y[mask], marker=".", s=143, color=c)
 
     cbar = fig.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),
                         ax=ax, label="elevation (m)")
