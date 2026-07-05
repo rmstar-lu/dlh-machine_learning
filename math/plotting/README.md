@@ -31,3 +31,7 @@ Stacked bar plot.
 ## `100-gradient.py`
 
 Plot contour as color gradient.
+
+## `101-pca.py`
+
+PCA data as 3D scatter plot.
