@@ -26,7 +26,7 @@ def gradient():
     cmap = cm.get_cmap('viridis')
     norm = mcolors.Normalize(z.min(), z.max())
 
-    plt.scatter(x, y, marker=".", s=140, cmap='viridis', c=z)
+    plt.scatter(x, y, cmap=cmap, c=z)
 
     cbar = fig.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap),
                         ax=ax, label="elevation (m)")
