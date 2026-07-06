@@ -24,6 +24,6 @@ def change_scale():
     plt.ylabel("Fraction Remaining")
     plt.xlabel("Time (years)")
 
-    plt.plot(x, y, color="b")
+    plt.plot(x, y)
 
     # plt.show()
