@@ -3,8 +3,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import matplotlib
-matplotlib.use('TKAgg')
+# import matplotlib
+# matplotlib.use('TKAgg')
 
 
 def change_scale():
@@ -26,4 +26,4 @@ def change_scale():
 
     plt.plot(x, y, color="b")
 
-    plt.show()
+    # plt.show()
