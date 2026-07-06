@@ -3,8 +3,8 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-# import matplotlib
-# matplotlib.use('TKAgg')
+import matplotlib
+matplotlib.use('TKAgg')
 
 
 def change_scale():
@@ -21,9 +21,9 @@ def change_scale():
     ax.set_yscale('log', base=10)
 
     plt.title("Exponential Decay of C-14")
-    plt.ylabel("Fraction Remaining", fontsize=10)
-    plt.xlabel("Time (years)", fontsize=10)
+    plt.ylabel("Fraction Remaining")
+    plt.xlabel("Time (years)")
 
-    plt.plot(x, y, color="#598FC0", linewidth=1.5)
+    plt.plot(x, y, color="b")
 
-    # plt.show()
+    plt.show()
