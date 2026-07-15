@@ -15,3 +15,7 @@ Summation and product, series, derivatives, integrals
 ## Plotting
 
 Matplotlib
+
+## Probability
+
+Poisson, exponential, normal distribution.
