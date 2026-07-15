@@ -37,3 +37,13 @@ class Poisson:
             pmf /= k
             k -= 1
         return pmf
+
+    def cdf(self, k):
+        """
+        Probability for x <= k.
+        """
+
+        k = int(k)
+        if k < 0:
+            return 0
+        return sum(self.pmf(j) for j in range(k + 1))
