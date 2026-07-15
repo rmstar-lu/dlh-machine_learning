@@ -27,13 +27,13 @@ class Poisson:
         """
         Probability for x=k.
         This will overflow for large k, but I am not allowed to use ln().
-        Normally I would divide by successive i instead of multiplying out
-        the factorial.
         """
 
+        k = int(k)
         if k < 0:
             return 0
-        k_fac = 1
-        for i in range(2, k + 1):
-            k_fac *= i
-        return ((self.lambtha ** k) * (self._E ** -self.lambtha)) / k_fac
+        pmf = (self.lambtha ** k) * (self._E ** -self.lambtha)
+        while k > 1:
+            pmf /= k
+            k -= 1
+        return pmf
