@@ -7,6 +7,9 @@ Module normal, defines a class representing a normal distribution.
 class Normal:
     """ Class representing a normal distribution. """
 
+    _PI = 3.1415926536
+    _E = 2.7182818285
+
     def __init__(self, data=None, mean=0., stddev=1.):
         """ constructor """
 
@@ -33,3 +36,9 @@ class Normal:
         """ x value of given z-score """
 
         return self.mean + z * self.stddev
+
+    def pdf(self, x):
+        """ Probability density for given x-value """
+
+        return ((self._E ** -((x - self.mean) ** 2 / (2 * self.stddev ** 2))) /
+                (self.stddev * (2 * self._PI) ** .5))
