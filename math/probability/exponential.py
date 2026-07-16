@@ -25,9 +25,18 @@ class Exponential:
 
     def pdf(self, x):
         """
-        Probability density for a given time period.
+        Probability for time period = x.
         """
 
         if x < 0:
             return 0
         return self.lambtha * (self._E ** (-self.lambtha * x))
+
+    def cdf(self, x):
+        """
+        Probability for time period <= x.
+        """
+
+        if x < 0:
+            return 0
+        return 1 - (self._E ** (-self.lambtha * x))
