@@ -23,3 +23,13 @@ class Normal:
             raise TypeError('data must be a list')
         self.mean = float(mean)
         self.stddev = float(stddev)
+
+    def z_score(self, x):
+        """ z score of given x value """
+
+        return (x - self.mean) / self.stddev
+
+    def x_value(self, z):
+        """ x value of given z-score """
+
+        return self.mean + z * self.stddev
