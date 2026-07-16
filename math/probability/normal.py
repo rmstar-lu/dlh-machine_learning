@@ -42,3 +42,13 @@ class Normal:
 
         return ((self._E ** -((x - self.mean) ** 2 / (2 * self.stddev ** 2))) /
                 (self.stddev * (2 * self._PI) ** .5))
+
+    def cdf(self, x):
+        """ Probability for x-value <= x """
+
+        def erf(x):
+            """ Error function approximation """
+            return (2 / self._PI ** .5) * (x - x ** 3 / 3 + x ** 5 / 10 -
+                                           x ** 7 / 42 + x ** 9 / 216)
+
+        return .5 * (1 + erf((x - self.mean) / (self.stddev * 2 ** .5)))
