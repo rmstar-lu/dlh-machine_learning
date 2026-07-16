@@ -22,3 +22,12 @@ class Exponential:
         else:
             raise TypeError('data must be a list')
         self.lambtha = float(lambtha)
+
+    def pdf(self, x):
+        """
+        Probability density for a given time period.
+        """
+
+        if x < 0:
+            return 0
+        return self.lambtha * (self._E ** -self.lambtha)
