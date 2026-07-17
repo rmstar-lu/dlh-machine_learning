@@ -27,3 +27,14 @@ class Binomial:
             raise TypeError('data must be a list')
         self.n = int(n)
         self.p = float(p)
+
+    def pmf(self, k):
+        """ Probability for x=k """
+
+        k = int(k)
+        if k < 0:
+            return 0
+        n_choose_k = 1
+        for i in range(k + 1, self.n + 1):
+            n_choose_k *= i / (i - k)
+        return n_choose_k * self.p ** k * (1 - self.p) ** (self.n - k)
