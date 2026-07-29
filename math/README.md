@@ -19,3 +19,7 @@ Matplotlib
 ## Probability
 
 Poisson, exponential, normal distribution.
+
+## Bayesian probability
+
+Likelihood, intersection, marginal probability, posterior probability.
