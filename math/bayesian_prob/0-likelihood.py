@@ -31,4 +31,4 @@ def likelihood(x, n, P):
         n_choose_x *= i
     for i in range(2, n - x + 1):
         n_choose_x //= i
-    return n_choose_x * P ** x * (1 - P) ** (n - x)
+    return float(n_choose_x) * P ** x * (1 - P) ** (n - x)
