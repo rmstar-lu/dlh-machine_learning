@@ -10,3 +10,12 @@ x is the number of patients that develop severe side effects
 n is the total number of patients observed
 P is a 1D numpy.ndarray containing the various hypothetical probabilities of developing severe side effects
 
+## 1-intersection.py
+
+Based on 0-likelihood.py, write a function def intersection(x, n, P, Pr): that calculates the intersection of obtaining this data with the various hypothetical probabilities:
+
+x is the number of patients that develop severe side effects
+n is the total number of patients observed
+P is a 1D numpy.ndarray containing the various hypothetical probabilities of developing severe side effects
+Pr is a 1D numpy.ndarray containing the prior beliefs of P
+
