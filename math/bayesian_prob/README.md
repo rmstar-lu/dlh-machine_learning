@@ -37,3 +37,12 @@ n is the total number of patients observed
 P is a 1D numpy.ndarray containing the various hypothetical probabilities of developing severe side effects
 Pr is a 1D numpy.ndarray containing the prior beliefs of P
 
+## 100-continuous.py
+
+Based on 3-posterior.py, write a function def posterior(x, n, p1, p2): that calculates the posterior probability that the probability of developing severe side effects falls within a specific range given the data:
+
+x is the number of patients that develop severe side effects
+n is the total number of patients observed
+p1 is the lower bound on the range
+p2 is the upper bound on the range
+
