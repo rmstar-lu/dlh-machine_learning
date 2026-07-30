@@ -19,3 +19,12 @@ n is the total number of patients observed
 P is a 1D numpy.ndarray containing the various hypothetical probabilities of developing severe side effects
 Pr is a 1D numpy.ndarray containing the prior beliefs of P
 
+## 2-marginal.py
+
+Based on 1-intersection.py, write a function def marginal(x, n, P, Pr): that calculates the marginal probability of obtaining the data:
+
+x is the number of patients that develop severe side effects
+n is the total number of patients observed
+P is a 1D numpy.ndarray containing the various hypothetical probabilities of patients developing severe side effects
+Pr is a 1D numpy.ndarray containing the prior beliefs about P
+
