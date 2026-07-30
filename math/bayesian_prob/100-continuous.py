@@ -6,7 +6,6 @@ given the data, assuming a uniform prior distribution.
 The posterior distribution of p is a Beta[x + 1, n - x + 1] distribution.
 Its CDF is the regularized incomplete beta function.
 """
-import numpy as np
 from scipy import special
 
 
