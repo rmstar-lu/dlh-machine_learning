@@ -49,7 +49,7 @@ class MultiNormal:
 
         It is better to use eigenvalue decomposition:
         """
-        vals, vecs = np.linalg.eigh(self.cov)
+        vals, vecs = np.linalg.eig(self.cov)  # eigh would work, too
         logdet = np.sum(np.log(vals))
         U = vecs * np.sqrt(1. / vals)
         v = x - self.mean
