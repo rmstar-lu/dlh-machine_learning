@@ -43,4 +43,4 @@ class MultiNormal:
 
         v = x - self.mean
         return ((2 * np.pi) ** (-.5 * d) * np.linalg.det(self.cov) ** -.5 *
-                np.exp(-.5 * v.T @ np.linalg.inv(self.cov) @ v))
+                np.exp(-.5 * (v.T @ np.linalg.inv(self.cov) @ v)[0, 0]))
