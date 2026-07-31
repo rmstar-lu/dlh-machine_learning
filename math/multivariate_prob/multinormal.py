@@ -29,3 +29,18 @@ class MultiNormal:
         self.mean = data.mean(axis=1).reshape((d, 1))
         self.cov = np.array([[cov(data[i], data[j]) for i in range(d)]
                             for j in range(d)])
+
+    def pdf(self, x):
+        """
+        x is a numpy.ndarray of shape (d, 1) containing the data point
+        whose PDF should be calculated
+        """
+        if not isinstance(x, np.ndarray):
+            raise TypeError("x must be a numpy.ndarray")
+        d = self.mean.shape[0]
+        if x.shape != (d, 1):
+            raise ValueError(f"x must have the shape ({d}, 1)")
+
+        v = x - self.mean
+        return ((2 * np.pi) ** (-.5 * d) * np.linalg.det(self.cov) ** -.5 *
+                np.exp(-.5 * v.T @ np.linalg.inv(self.cov) @ v))
