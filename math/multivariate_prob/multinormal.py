@@ -48,7 +48,6 @@ class MultiNormal:
                 np.exp(-.5 * (v.T @ np.linalg.inv(self.cov) @ v)[0, 0]))
 
         It is better to use eigenvalue decomposition:
-        """
         vals, vecs = np.linalg.eig(self.cov)  # eigh would work, too
         logdet = np.sum(np.log(vals))
         U = vecs * np.sqrt(1. / vals)
@@ -56,3 +55,10 @@ class MultiNormal:
         maha = np.square(v.T @ U).sum()
         log2pi = np.log(2 * np.pi)
         return np.exp(-.5 * (len(vals) * log2pi + maha + logdet))
+
+        This is even simpler:
+        """
+        norm_coeff = d * np.log(2 * np.pi) + np.linalg.slogdet(self.cov)[1]
+        v = x - self.mean
+        numerator = np.linalg.solve(self.cov, v).T.dot(v)[0,0]
+        return np.exp(-.5 * (norm_coeff + numerator))
