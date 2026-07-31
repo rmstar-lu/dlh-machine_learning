@@ -41,6 +41,18 @@ class MultiNormal:
         if x.shape != (d, 1):
             raise ValueError(f"x must have the shape ({d}, 1)")
 
+        """
+        The naive implementation is numerically unstable and slow:
         v = x - self.mean
         return ((2 * np.pi) ** (-.5 * d) * np.linalg.det(self.cov) ** -.5 *
                 np.exp(-.5 * (v.T @ np.linalg.inv(self.cov) @ v)[0, 0]))
+
+        It is better to use eigenvalue decomposition:
+        """
+        vals, vecs = np.linalg.eigh(self.cov)
+        logdet = np.sum(np.log(vals))
+        U = vecs * np.sqrt(1. / vals)
+        v = x - self.mean
+        maha = np.square(v.T @ U).sum()
+        log2pi = np.log(2 * np.pi)
+        return np.exp(-.5 * (len(vals) * log2pi + maha + logdet))
