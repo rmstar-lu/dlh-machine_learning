@@ -25,12 +25,12 @@ def mean_cov(X):
         """ covariance """
         return ((x - x.mean()) * (y - y.mean())).sum() / (len(x) - 1)
 
-    if not(isinstance(X, np.ndarray) and len(X.shape) == 2):
+    if not (isinstance(X, np.ndarray) and len(X.shape) == 2):
         raise TypeError("X must be a 2D numpy.ndarray")
     n, d = X.shape
     if n < 2:
         raise ValueError("X must contain multiple data points")
-    mean = X.mean(axis=0).reshape(1, d)
+    mean = X.mean(axis=0).reshape((1, d))
     cov = np.array([[cov(X[:, i], X[:, j]) for i in range(d)]
                     for j in range(d)])
     return mean, cov
