@@ -30,7 +30,7 @@ def mean_cov(X):
     n, d = X.shape
     if n < 2:
         raise ValueError("X must contain multiple data points")
-    mean = X.mean(axis=0)
+    mean = X.mean(axis=0).reshape(1, d)
     cov = np.array([[cov(X[:, i], X[:, j]) for i in range(d)]
                     for j in range(d)])
     return mean, cov
