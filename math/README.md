@@ -23,3 +23,7 @@ Poisson, exponential, normal distribution.
 ## Bayesian probability
 
 Likelihood, intersection, marginal probability, posterior probability.
+
+## Multivariate probability
+
+Mean and covariance, correlation, multivariate normal, PDF
