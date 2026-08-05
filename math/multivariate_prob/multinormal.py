@@ -57,8 +57,14 @@ class MultiNormal:
         return np.exp(-.5 * (len(vals) * log2pi + maha + logdet))
 
         This is even simpler:
-        """
         norm_coeff = d * np.log(2 * np.pi) + np.linalg.slogdet(self.cov)[1]
         v = x - self.mean
         numerator = np.linalg.solve(self.cov, v).T.dot(v)[0,0]
         return np.exp(-.5 * (norm_coeff + numerator))
+
+        Try this version without log to get closer to their result:
+        """
+        v = x - self.mean
+        det = np.linalg.det(self.cov)
+        maha = np.linalg.solve(self.cov, v).T.dot(v)[0, 0]
+        return np.exp(-.5 * maha) / np.sqrt(det * (2 * np.pi) ** d)
