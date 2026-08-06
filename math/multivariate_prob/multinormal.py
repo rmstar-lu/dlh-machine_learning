@@ -16,9 +16,6 @@ class MultiNormal:
         n is the number of data points
         d is the number of dimensions in each data point
         """
-        def cov(x, y):
-            """ covariance """
-            return ((x - x.mean()) * (y - y.mean())).sum() / (len(x) - 1)
 
         if not (isinstance(data, np.ndarray) and len(data.shape) == 2):
             raise TypeError("data must be a 2D numpy.ndarray")
@@ -27,8 +24,7 @@ class MultiNormal:
             raise ValueError("data must contain multiple data points")
 
         self.mean = data.mean(axis=1).reshape((d, 1))
-        self.cov = np.array([[cov(data[i], data[j]) for i in range(d)]
-                            for j in range(d)])
+        self.cov = ((data - self.mean) @ (data - self.mean).T) / (n - 1)
 
     def pdf(self, x):
         """
@@ -62,9 +58,9 @@ class MultiNormal:
         numerator = np.linalg.solve(self.cov, v).T.dot(v)[0,0]
         return np.exp(-.5 * (norm_coeff + numerator))
 
-        Try this version without log to get closer to their result:
+        This version without log returns the exact result for the test case:
         """
         v = x - self.mean
         det = np.linalg.det(self.cov)
         maha = np.linalg.solve(self.cov, v).T.dot(v)[0, 0]
-        return np.exp(-.5 * maha) / np.sqrt(det * (2 * np.pi) ** d)
+        return (1. / np.exp(.5 * maha)) * (det * (2 * np.pi) ** d) ** -.5
