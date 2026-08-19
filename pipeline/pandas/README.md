@@ -40,3 +40,7 @@ A function that selects not-NaN values from a DataFrame.
 
 A function that fills missing values in a DataFrame.
 
+## `10-index.py`
+
+A function that indexes a DataFrame on a column.
+
