@@ -9,8 +9,6 @@ Convert these selected values into a numpy.ndarray.
 Returns: the numpy.ndarray
 """
 
-import pandas as pd
-
 
 def array(df):
     """ A function that selects the last 10 of columns High and Close. """
