@@ -12,3 +12,6 @@ A script that creates a pd.DataFrame from a dictionary.
 
 A function that loads data from a file as a pd.DataFrame.
 
+## `3-rename.py`
+
+A function that renames and converts a column in a pd.DataFrame.
