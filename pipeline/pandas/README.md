@@ -23,3 +23,7 @@ A function that selects the last 10 values of 2 columns as a numpy ndarray.
 ## `5-slice.py`
 
 A function that selects every 60th row from 4 columns.
+
+## `6-flip_switch.py`
+
+A function that sorts a pd.DataFrame in reverse and transposes it.
