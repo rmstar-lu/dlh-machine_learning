@@ -19,3 +19,7 @@ A function that renames and converts a column in a pd.DataFrame.
 ## `4-array.py`
 
 A function that selects the last 10 values of 2 columns as a numpy ndarray.
+
+## `5-slice.py`
+
+A function that selects every 60th row from 4 columns.
