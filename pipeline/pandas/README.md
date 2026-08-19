@@ -35,3 +35,8 @@ A function that sorts a pd.DataFrame by descending High price.
 ## `8-prune.py`
 
 A function that selects not-NaN values from a DataFrame.
+
+## `9-fill.py`
+
+A function that fills missing values in a DataFrame.
+
