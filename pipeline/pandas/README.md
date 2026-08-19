@@ -27,3 +27,8 @@ A function that selects every 60th row from 4 columns.
 ## `6-flip_switch.py`
 
 A function that sorts a pd.DataFrame in reverse and transposes it.
+
+## `7-high.py`
+
+A function that sorts a pd.DataFrame by descending High price.
+
