@@ -48,3 +48,7 @@ A function that indexes a DataFrame on a column.
 
 A function that concatenates two DataFrames.
 
+## `12-hierarchy.py`
+
+A function that concatenates two DataFrames,
+swaps the pivot table and sorts it.
