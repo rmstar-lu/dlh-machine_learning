@@ -52,3 +52,8 @@ A function that concatenates two DataFrames.
 
 A function that concatenates two DataFrames,
 swaps the pivot table and sorts it.
+
+## `13-analyze.py`
+
+A function that computes descriptive statistics on a DataFrame.
+
