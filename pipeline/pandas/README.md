@@ -32,3 +32,6 @@ A function that sorts a pd.DataFrame in reverse and transposes it.
 
 A function that sorts a pd.DataFrame by descending High price.
 
+## `8-prune.py`
+
+A function that selects not-NaN values from a DataFrame.
