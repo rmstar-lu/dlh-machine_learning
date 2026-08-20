@@ -57,3 +57,7 @@ swaps the pivot table and sorts it.
 
 A function that computes descriptive statistics on a DataFrame.
 
+## `14-visualize.py`
+
+A script to visualize the pd.DataFrame.
+
