@@ -13,3 +13,6 @@ A function that performs K-means on a dataset.
 
 A function that calculates the total intra-cluster variance for a data set.
 
+## `3-optimum.py`
+
+A function that tests for the optimum number of clusters by variance.
