@@ -23,7 +23,6 @@ clss is a numpy.ndarray of shape (n,) containing the index of the cluster in
 C that each data point belongs to
 """
 import numpy as np
-from sklearn.cluster import KMeans
 
 
 def kmeans(X, k, iterations=1000):
@@ -33,21 +32,28 @@ def kmeans(X, k, iterations=1000):
             or type(k) is not int or k <= 0):
         return (None, None)
 
-    d = X.shape[1]
+    n, d = X.shape
     centers = np.random.uniform(
         X.min(axis=0), X.max(axis=0), size=(k, d)
     )
-    reinitialized = True
-    while reinitialized:
-        kmeans = KMeans(n_clusters=k, init=centers, max_iter=iterations)
-        kmeans.fit(X)
-        centers = kmeans.cluster_centers_
-        reinitialized = False
-        for i in range(d):
-            if (kmeans.labels_ == i).sum() == 0:
-                # reinitialize center of empty cluster
-                centers[i] = np.random.uniform(
+    prev_centers = centers.copy()
+    prev_centers.fill(np.nan)
+    for i in range(iterations):
+        # L2 distances to each center, dist.shape == (n, k)
+        dist = np.sqrt(((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2))
+        # find minimum index for each row
+        labels = np.argmin(dist, axis=1)
+        # update centers by averaging clusters with same label
+        for j in range(k):
+            if (labels == j).sum() == 0:
+                # empty cluster, reinitialize centroid
+                centers[j] = np.random.uniform(
                     X.min(axis=0), X.max(axis=0), size=(d,)
                 )
-                reinitialized = True
-    return (centers, kmeans.labels_)
+            else:
+                centers[j] = X[labels == j].mean(axis=0)
+        if np.allclose(centers, prev_centers):
+            return (centers, labels)
+        prev_centers = centers.copy()
+    # did not converge in the specified number of iterations
+    return (None, None)
