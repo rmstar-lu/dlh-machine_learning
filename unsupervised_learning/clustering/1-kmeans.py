@@ -29,6 +29,8 @@ def kmeans(X, k, iterations=1000):
             else:
                 centers[j] = X[labels == j].mean(axis=0)
         if np.allclose(centers, prev_centers):
-            break
+            return (centers, labels)
         prev_centers = centers.copy()
+    dist = np.sqrt(((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2))
+    labels = np.argmin(dist, axis=1)
     return (centers, labels)

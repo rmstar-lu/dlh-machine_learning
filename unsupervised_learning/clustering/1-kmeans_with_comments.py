@@ -55,4 +55,7 @@ def kmeans(X, k, iterations=1000):
         if np.allclose(centers, prev_centers):
             break
         prev_centers = centers.copy()
+    # did not converge, reassign labels one last time
+    dist = np.sqrt(((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2))
+    labels = np.argmin(dist, axis=1)
     return (centers, labels)
