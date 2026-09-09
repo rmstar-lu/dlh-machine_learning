@@ -24,6 +24,11 @@ import numpy as np
 
 def initialize(X, k):
     """ Initialize cluster centroids for K-means """
+    if (not isinstance(X, np.ndarray) or len(X.shape) != 2
+            or X.shape[0] < 1 or X.shape[1] < 1
+            or type(k) is not int or k <= 0):
+        return None
+
     return np.random.uniform(
         X.min(axis=0), X.max(axis=0), size=(k, X.shape[1])
     )
