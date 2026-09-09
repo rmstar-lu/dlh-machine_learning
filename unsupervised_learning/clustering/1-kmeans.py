@@ -29,6 +29,6 @@ def kmeans(X, k, iterations=1000):
             else:
                 centers[j] = X[labels == j].mean(axis=0)
         if np.allclose(centers, prev_centers):
-            return (centers, labels)
+            break
         prev_centers = centers.copy()
-    return (None, None)
+    return (centers, labels)
