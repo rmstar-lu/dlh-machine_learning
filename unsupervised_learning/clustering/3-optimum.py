@@ -24,6 +24,5 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
         C, labels = kmeans(X, k, iterations)
         results.append((C, labels))
         var = variance(X, C)
-        print(f"k = {k}, var = {var}")
         variances.append(var)
     return (results, list(variances[0] - np.array(variances)))
