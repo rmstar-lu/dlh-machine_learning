@@ -15,6 +15,7 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
             or type(kmin) is not int or kmin <= 0
             or type(kmax) is not int or kmax <= kmin
             or type(iterations) is not int or iterations <= 0):
+        print(X.shape, kmin, kmax, iterations)
         return (None, None)
 
     results, variances = [], []
