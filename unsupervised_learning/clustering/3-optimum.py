@@ -13,7 +13,7 @@ def optimum_k(X, kmin=1, kmax=None, iterations=1000):
     if (not isinstance(X, np.ndarray) or len(X.shape) != 2
             or X.shape[0] < 1 or X.shape[1] < 1
             or type(kmin) is not int or kmin <= 0
-            or (kmax is not None and type(kmax) is not int or kmax <= kmin)
+            or kmax is not None and (type(kmax) is not int or kmax <= kmin)
             or type(iterations) is not int or iterations <= 0):
         return (None, None)
 
