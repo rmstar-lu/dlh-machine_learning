@@ -16,3 +16,7 @@ A function that calculates the total intra-cluster variance for a data set.
 ## `3-optimum.py`
 
 A function that tests for the optimum number of clusters by variance.
+
+## `4-initialize.py`
+
+A function that initializes variables for a Gaussian Mixture Model.
