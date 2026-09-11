@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-A function that performs the expectation maximization for a GMM:
+A function that performs the expectation maximization for a GMM
 """
 import numpy as np
 
@@ -21,15 +21,15 @@ def expectation_maximization(X, k, iterations=1000, tol=1e-5, verbose=False):
 
     pi, m, S = initialize(X, k)
     logL_prev = np.nan
-    for i in range(iterations):
+    i = 0
+    while True:
         g, logL = expectation(X, pi, m, S)
-        if abs(logL - logL_prev) <= tol:
-            iterations = i
-            break
-        if verbose and i % 10 == 0:
+        finished = (i == iterations or abs(logL - logL_prev) <= tol)
+        if verbose and (i % 10 == 0 or finished):
             print(f"Log Likelihood after {i} iterations: {logL:.5f}")
+        if finished:
+            break
         pi, m, S = maximization(X, g)
         logL_prev = logL
-    if verbose:
-        print(f"Log Likelihood after {iterations} iterations: {logL:.5f}")
+        i += 1
     return (pi, m, S, g, logL)
