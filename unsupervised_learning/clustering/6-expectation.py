@@ -12,7 +12,7 @@ def expectation(X, pi, m, S):
     if (not isinstance(X, np.ndarray) or len(X.shape) != 2
             or X.shape[0] < 1 or X.shape[1] < 1
         or not isinstance(pi, np.ndarray) or len(pi.shape) != 1
-            or len(pi) < 1
+            or len(pi) < 1 or pi.sum() != 1.
         or not isinstance(m, np.ndarray) or len(m.shape) != 2
             or m.shape[0] != len(pi) or m.shape[1] != X.shape[1]
         or not isinstance(S, np.ndarray) or len(S.shape) != 3
