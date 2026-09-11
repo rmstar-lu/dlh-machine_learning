@@ -24,3 +24,7 @@ A function that initializes variables for a Gaussian Mixture Model.
 ## `5-pdf.py`
 
 A function that calculates the probability density function of a Gaussian distribution.
+
+## `6-expectation.py`
+
+A function that calculates the expectation step in the EM algorithm for a GMM.

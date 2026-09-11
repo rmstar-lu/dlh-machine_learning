@@ -29,6 +29,7 @@ def pdf(X, m, S):
     det = np.linalg.det(S)
     # sum of distance^2 for each data point
     maha = ((v @ np.linalg.inv(S)) * v).sum(axis=1)
-    pdf = (1. / np.exp(.5 * maha)) * (det * (2 * np.pi) ** d) ** -.5
+    # switched to np.exp(-.5 * maha) from 1. / np.exp(.5 * maha) because of overflow
+    pdf = np.exp(-.5 * maha) * (det * (2 * np.pi) ** d) ** -.5
     np.maximum(pdf, 1e-300, out=pdf)
     return pdf
