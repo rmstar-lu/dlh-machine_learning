@@ -18,5 +18,5 @@ def maximization(X, g):
     pi = G / G.sum()
     m = (g @ X) / G[:, None]
     S = np.array([((g[i, :, np.newaxis] * (X - m[i])).T @ (X - m[i]))
-                    for i in range(len(g))]) / G[:, None, None]
+                  for i in range(len(g))]) / G[:, None, None]
     return (pi, m, S)
