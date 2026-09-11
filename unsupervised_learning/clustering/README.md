@@ -28,3 +28,7 @@ A function that calculates the probability density function of a Gaussian distri
 ## `6-expectation.py`
 
 A function that calculates the expectation step in the EM algorithm for a GMM.
+
+## `7-maximization.py`
+
+A function that calculates the maximization step in the EM algorithm for a GMM.
