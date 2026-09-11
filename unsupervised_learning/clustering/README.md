@@ -20,3 +20,7 @@ A function that tests for the optimum number of clusters by variance.
 ## `4-initialize.py`
 
 A function that initializes variables for a Gaussian Mixture Model.
+
+## `5-pdf.py`
+
+A function that calculates the probability density function of a Gaussian distribution.
