@@ -32,3 +32,7 @@ A function that calculates the expectation step in the EM algorithm for a GMM.
 ## `7-maximization.py`
 
 A function that calculates the maximization step in the EM algorithm for a GMM.
+
+## `8-EM.py`
+
+A function that performs the expectation maximization for a GMM.
