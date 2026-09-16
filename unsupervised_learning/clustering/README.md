@@ -36,3 +36,7 @@ A function that calculates the maximization step in the EM algorithm for a GMM.
 ## `8-EM.py`
 
 A function that performs the expectation maximization for a GMM.
+
+## `9-BIC.py`
+
+A function that finds the best number of clusters for a GMM using the Bayesian Information Criterion.
