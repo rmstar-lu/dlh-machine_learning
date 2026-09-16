@@ -45,3 +45,6 @@ A function that finds the best number of clusters for a GMM using the Bayesian I
 
 A function that performs K-means on a dataset using sklearn.
 
+## `11-gmm.py`
+
+A function that calculates a GMM from a dataset using sklearn.
