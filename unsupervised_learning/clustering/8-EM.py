@@ -26,7 +26,7 @@ def expectation_maximization(X, k, iterations=1000, tol=1e-5, verbose=False):
         g, logL = expectation(X, pi, m, S)
         finished = (i == iterations or abs(logL - logL_prev) <= tol)
         if verbose and (i % 10 == 0 or finished):
-            print(f"Log Likelihood after {i} iterations: {logL:.5f}")
+            print(f"Log Likelihood after {i} iterations: {round(logL, 5)}")
         if finished:
             break
         pi, m, S = maximization(X, g)
