@@ -48,3 +48,7 @@ A function that performs K-means on a dataset using sklearn.
 ## `11-gmm.py`
 
 A function that calculates a GMM from a dataset using sklearn.
+
+## `12-agglomerative.py`
+
+A function that performs agglomerative clustering on a dataset using scipy.
