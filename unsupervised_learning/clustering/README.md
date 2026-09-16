@@ -40,3 +40,8 @@ A function that performs the expectation maximization for a GMM.
 ## `9-BIC.py`
 
 A function that finds the best number of clusters for a GMM using the Bayesian Information Criterion.
+
+## `10-kmeans.py`
+
+A function that performs K-means on a dataset using sklearn.
+
