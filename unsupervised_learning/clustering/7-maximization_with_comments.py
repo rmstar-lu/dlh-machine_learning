@@ -26,7 +26,7 @@ def maximization(X, g):
         return (None, None, None)
 
     G = g.sum(axis=1)           # sum of posterior probabilities by cluster
-    pi = G / G.sum()
+    pi = G / len(X)             # G.sum() == len(X)
     m = (g @ X) / G[:, None]    # weighted avg of X using g as weights
     # Covariance matrices are scaled by g / G
     # \Sigma_i = \frac{1}{G_i} \sum_{j=1}^n g_{ij}(x_j - m_i)^T(x_j - m_i)
