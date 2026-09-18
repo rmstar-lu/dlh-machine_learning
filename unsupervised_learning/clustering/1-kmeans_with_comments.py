@@ -41,7 +41,7 @@ def kmeans(X, k, iterations=1000):
     prev_centers.fill(np.nan)
     for i in range(iterations):
         # L2 distances to each center, dist.shape == (n, k)
-        dist = np.sqrt(((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2))
+        dist = ((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2)
         # find minimum index for each row
         labels = np.argmin(dist, axis=1)
         # update centers by averaging clusters with same label
@@ -57,6 +57,6 @@ def kmeans(X, k, iterations=1000):
             break
         prev_centers = centers.copy()
     # did not converge, reassign labels one last time
-    dist = np.sqrt(((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2))
+    dist = ((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2)
     labels = np.argmin(dist, axis=1)
     return (centers, labels)

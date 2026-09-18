@@ -20,7 +20,7 @@ def kmeans(X, k, iterations=1000):
     prev_centers = centers.copy()
     prev_centers.fill(np.nan)
     for i in range(iterations):
-        dist = np.sqrt(((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2))
+        dist = ((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2)
         labels = np.argmin(dist, axis=1)
         for j in range(k):
             if (labels == j).sum() == 0:
@@ -32,6 +32,6 @@ def kmeans(X, k, iterations=1000):
         if np.allclose(centers, prev_centers):
             return (centers, labels)
         prev_centers = centers.copy()
-    dist = np.sqrt(((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2))
+    dist = ((X[:, np.newaxis, :] - centers) ** 2).sum(axis=2)
     labels = np.argmin(dist, axis=1)
     return (centers, labels)
