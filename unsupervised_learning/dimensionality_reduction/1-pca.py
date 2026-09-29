@@ -10,4 +10,4 @@ def pca(X, ndim):
     X = X - np.mean(X, axis=0)
     U, S, Vt = np.linalg.svd(X, full_matrices=False)
     W = Vt.T
-    return X @ -W[:, :ndim]     # why flip the sign???
+    return X @ W[:, :ndim]
