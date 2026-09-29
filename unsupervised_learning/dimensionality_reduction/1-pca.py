@@ -7,5 +7,7 @@ import numpy as np
 
 def pca(X, ndim):
     """ Perform PCA on a dataset """
-    U, S, _ = np.linalg.svd(X)     # full_matrices=False
-    return U[:, :ndim] @ np.diag(S[:ndim])
+    X = X - np.mean(X, axis=0)
+    U, S, Vt = np.linalg.svd(X, full_matrices=False)
+    W = Vt.T
+    return X @ -W[:, :ndim]     # why flip the sign???
