@@ -24,3 +24,8 @@ A function that calculates the symmetric P affinities of a data set.
 ## `5-Q_affinities.py`
 
 A function that calculates the Q affinities in the low dimensional space.
+
+## `6-grads.py`
+
+A function that calculates the gradients of Y.
+
