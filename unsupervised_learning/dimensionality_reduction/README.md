@@ -16,3 +16,7 @@ A function that initializes all variables required to calculate the P affinities
 ## `3-entropy.py`
 
 A function that calculates the Shannon entropy and P affinities relative to a data point.
+
+## `4-P_affinities.py`
+
+A function that calculates the symmetric P affinities of a data set.
