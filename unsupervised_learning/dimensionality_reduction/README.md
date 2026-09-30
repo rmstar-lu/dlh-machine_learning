@@ -29,3 +29,6 @@ A function that calculates the Q affinities in the low dimensional space.
 
 A function that calculates the gradients of Y.
 
+## `7-cost.py`
+
+A function that calculates the cost of the t-SNE transformation.
