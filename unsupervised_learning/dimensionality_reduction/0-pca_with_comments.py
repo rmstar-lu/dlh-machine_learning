@@ -21,6 +21,6 @@ def pca(X, var=0.95):
     W = Vt.T
     # squared singular values are the eigenvalues
     # each eigenvalue is proportional to the variance
-    eig = (S ** 2) / n - 1
+    eig = (S ** 2) / (n - 1)
     nd = np.searchsorted(np.cumsum(eig), var * eig.sum()) + 1
     return W[:, :nd + 1]            # why + 1???
