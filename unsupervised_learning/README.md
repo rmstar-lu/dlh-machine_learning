@@ -7,4 +7,4 @@ k-means, Gaussian mixture modelling, hierarchical clustering
 
 ## Dimensionality reduction
 
-PCA, SVD, t-SNA
+PCA, SVD, t-SNE
