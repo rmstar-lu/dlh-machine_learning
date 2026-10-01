@@ -19,9 +19,7 @@ Q_affinities = __import__('5-Q_affinities').Q_affinities
 
 def grads(Y, P):
     """ Calculate the gradients of Y """
-    n, ndim = Y.shape
     Q, num = Q_affinities(Y)
-
     # scaling has shape (n, n)
     scaling = (P - Q) * num
     # pairwise differences of vectors in Y, shape (n, n, ndim) 
