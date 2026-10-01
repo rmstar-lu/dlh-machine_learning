@@ -32,3 +32,7 @@ A function that calculates the gradients of Y.
 ## `7-cost.py`
 
 A function that calculates the cost of the t-SNE transformation.
+
+## `8-tsne.py`
+
+A function that performs a t-SNE transformation on a dataset.
