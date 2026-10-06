@@ -57,6 +57,6 @@ class Neuron:
         Calculate one pass of gradient descent, update weights and bias
             alpha is the learning rate
         """
-        dL_dZ = (A - Y) / X.shape[1]  # average derivative of loss by Z
-        self.__W -= alpha * (dL_dZ @ X.T)
-        self.__b -= alpha * dL_dZ.sum()
+        dL_dZ = A - Y  # derivative of loss by Z
+        self.__W -= alpha * ((dL_dZ / X.shape[1]) @ X.T)
+        self.__b -= alpha * dL_dZ.mean()
