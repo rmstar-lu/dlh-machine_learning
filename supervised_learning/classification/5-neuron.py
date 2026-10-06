@@ -58,5 +58,6 @@ class Neuron:
             alpha is the learning rate
         """
         dL_dZ = A - Y  # derivative of loss by Z
+        print(f"dL_dZ.shape = {dL_dZ.shape}, self.__W.shape = {self.__W.shape}, (self.__W - alpha * dL_dZ @ X.T).shape = {(self.__W - alpha * dL_dZ @ X.T).shape}")
         self.__W -= alpha * dL_dZ @ X.T
         self.__b -= alpha * dL_dZ.mean()
