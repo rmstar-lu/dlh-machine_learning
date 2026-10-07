@@ -90,7 +90,7 @@ class Neuron:
                     graph_x.append(t)
                     graph_y.append(cost)
             self.gradient_descent(X, Y, A, alpha)
-        A, cost = self.evaluate(X, Y)
+        predictions, cost = self.evaluate(X, Y)
         if verbose:
             print(f"Cost after {iterations} iterations: {cost}")
         if graph:
@@ -103,4 +103,4 @@ class Neuron:
             plt.ylabel("cost")
             plt.tight_layout()
             plt.show()
-        return (A, cost)
+        return (predictions, cost)
