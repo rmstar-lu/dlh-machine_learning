@@ -16,3 +16,7 @@ A class that defines a deep neural network performing binary classification.
 ## `24-one_hot_encode.py`
 
 A function that converts a numeric label vector into a one-hot matrix.
+
+## `25-one_hot_decode.py`
+
+A function that converts a one-hot matrix into a vector of labels.
