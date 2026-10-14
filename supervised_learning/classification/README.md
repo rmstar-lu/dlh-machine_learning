@@ -8,3 +8,7 @@ A class that defines a single neuron performing binary classification.
 ## `15-neural_network.py`
 
 A class that defines a neural network with one hidden layer performing binary classification.
+
+## `28-deep_neural_network.py`
+
+A class that defines a deep neural network performing binary classification.
