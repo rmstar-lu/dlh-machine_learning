@@ -129,7 +129,7 @@ class DeepNeuralNetwork:
         dAct_dZ = dSig_dZ if self.__activation == 'sig' else dTanh_dZ
         nx, m = cache["A0"].shape
         dL_dZ_i_plus_1 = cache[f"A{self.__L}"] - Y
-        for i in range(self.__L - 1, -1, -1):
+        for i in range(self.__L - 1, 0, -1):
             dL_dZ_i = ((self.__weights[f"W{i + 1}"].T @ dL_dZ_i_plus_1)
                        * dAct_dZ(cache[f"A{i}"]))
             self.__weights[f"W{i + 1}"] -= \
@@ -137,6 +137,12 @@ class DeepNeuralNetwork:
             self.__weights[f"b{i + 1}"] -= \
                 alpha * dL_dZ_i_plus_1.mean(axis=1, keepdims=True)
             dL_dZ_i_plus_1 = dL_dZ_i
+        # no need to calculate dL_dZ_0
+        self.__weights[f"W1"] -= \
+            alpha * ((dL_dZ_i_plus_1 / m) @ cache[f"A0"].T)
+        self.__weights[f"b1"] -= \
+            alpha * dL_dZ_i_plus_1.mean(axis=1, keepdims=True)
+
 
     def train(self, X, Y, iterations=5000, alpha=0.05,
               verbose=True, graph=True, step=100):
