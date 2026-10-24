@@ -12,5 +12,5 @@ def optimize_model(network, alpha, beta1, beta2):
     network.compile(
         optimizer=adam,
         loss="categorical_crossentropy",
-        metrics=["categorical_accuracy"]
+        metrics=["accuracy"]
     )
