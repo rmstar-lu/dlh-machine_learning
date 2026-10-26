@@ -29,3 +29,8 @@ Same function with validation data.
 ## `6-train.py`
 
 Same function with early stopping option.
+
+## `7-train.py`
+
+Same function with inverse time decay on learning rate option.
+
