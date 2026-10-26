@@ -54,4 +54,7 @@ Functions to save and load a model's configuration in JSON format.
 
 A function to test a neural network.
 
+## `13-predict.py`
+
+A function to make a prediction using a neural network.
 
