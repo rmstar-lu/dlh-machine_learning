@@ -42,3 +42,8 @@ Same function with save best iteration of the model option.
 
 Functions to save and load an entire model.
 
+## `10-weights.py`
+
+Functions to save and load a model's weights.
+
+
