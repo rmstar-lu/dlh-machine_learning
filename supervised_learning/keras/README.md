@@ -21,3 +21,8 @@ A function that converts a label vector into a one-hot matrix using K.utils.
 ## `4-train.py`
 
 A function that trains a model using mini-batch gradient descent.
+
+## `5-train.py`
+
+Same function with validation data.
+
