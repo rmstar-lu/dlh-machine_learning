@@ -38,3 +38,7 @@ Same function with inverse time decay on learning rate option.
 
 Same function with save best iteration of the model option.
 
+## `9-model.py`
+
+Functions to save and load an entire model.
+
