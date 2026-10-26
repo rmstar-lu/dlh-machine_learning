@@ -26,3 +26,6 @@ A function that trains a model using mini-batch gradient descent.
 
 Same function with validation data.
 
+## `6-train.py`
+
+Same function with early stopping option.
