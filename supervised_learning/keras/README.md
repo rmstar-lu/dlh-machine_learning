@@ -34,3 +34,7 @@ Same function with early stopping option.
 
 Same function with inverse time decay on learning rate option.
 
+## `8-train.py`
+
+Same function with save best iteration of the model option.
+
