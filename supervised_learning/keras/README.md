@@ -46,4 +46,7 @@ Functions to save and load an entire model.
 
 Functions to save and load a model's weights.
 
+## `11-config.py`
+
+Functions to save and load a model's configuration in JSON format.
 
