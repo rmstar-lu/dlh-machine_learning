@@ -1,13 +1,6 @@
 #!/usr/bin/env python3
 """
-A function to test a neural network:
-
-network is the network model to test
-data is the input data to test the model with
-labels are the correct one-hot labels of data
-verbose is a boolean that determines if output should be printed during the testing process
-
-Returns: the loss and accuracy of the model with the testing data, respectively
+A function to test a neural network.
 """
 import tensorflow.keras as K
 
