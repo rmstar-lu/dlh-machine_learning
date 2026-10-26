@@ -50,3 +50,8 @@ Functions to save and load a model's weights.
 
 Functions to save and load a model's configuration in JSON format.
 
+## `12-test.py`
+
+A function to test a neural network.
+
+
