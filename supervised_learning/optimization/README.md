@@ -12,3 +12,7 @@ A function that standardizes a matrix.
 ## `2-shuffle_data.py`
 
 A function that shuffles the data points in two matrices the same way.
+
+## `3-mini_batch.py`
+
+A function that creates mini batches to be used for training a neural network using mini-batch gradient descent.
