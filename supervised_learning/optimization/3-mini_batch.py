@@ -20,5 +20,4 @@ def create_mini_batches(X, Y, batch_size):
     """ Create mini-batches to be used for training a neural network """
     X_s, Y_s = shuffle_data(X, Y)
     split = np.arange(batch_size, len(X), batch_size)
-    return [(X_batch, Y_batch) for X_batch, Y_batch in
-            zip(np.split(X_s, split), np.split(Y_s, split))]
+    return list(zip(np.split(X_s, split), np.split(Y_s, split)))
