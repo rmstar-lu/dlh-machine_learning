@@ -16,3 +16,7 @@ A function that shuffles the data points in two matrices the same way.
 ## `3-mini_batch.py`
 
 A function that creates mini batches to be used for training a neural network using mini-batch gradient descent.
+
+## `4-moving_average.py`
+
+A function that calculates the weighted moving average of a data set using bias correction.
