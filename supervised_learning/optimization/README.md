@@ -9,3 +9,6 @@ A function that calculates the normalization (standardization) constants of a ma
 
 A function that standardizes a matrix.
 
+## `2-shuffle_data.py`
+
+A function that shuffles the data points in two matrices the same way.
