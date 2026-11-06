@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-A function that updates a variable using the gradient descent with momentum optimization algorithm:
+A function that updates a variable using the gradient descent with
+momentum optimization algorithm:
 
 alpha is the learning rate
 beta1 is the momentum weight
