@@ -36,3 +36,7 @@ A function that updates a variable using the Adam optimization algorithm.
 ## `11-learning_rate_decay.py`
 
 A function that updates the learning rate using inverse time decay in numpy.
+
+## `12-learning_rate_decay.py`
+
+A function that creates an inverse time decay learning rate scheduler in tensorflow.
