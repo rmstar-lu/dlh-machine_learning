@@ -33,3 +33,6 @@ A function that updates a variable using the RMSProp optimization algorithm.
 
 A function that updates a variable using the Adam optimization algorithm.
 
+## `11-learning_rate_decay.py`
+
+A function that updates the learning rate using inverse time decay in numpy.
