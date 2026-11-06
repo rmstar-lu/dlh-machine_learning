@@ -15,5 +15,5 @@ Returns: the updated variable and the new moment, respectively
 
 def update_variables_momentum(alpha, beta1, var, grad, v):
     """ Update variables using gradient descent with momentum optimization """
-    v = beta1 * v - (1 - beta1) * alpha * grad
-    return (var + v, v)
+    v = beta1 * v + (1 - beta1) * grad
+    return (var - alpha * v, v)
