@@ -20,3 +20,7 @@ A function that creates mini batches to be used for training a neural network us
 ## `4-moving_average.py`
 
 A function that calculates the weighted moving average of a data set using bias correction.
+
+## `5-momentum.py`
+
+A function that updates a variable using the gradient descent with momentum optimization algorithm.
