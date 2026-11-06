@@ -28,3 +28,8 @@ A function that updates a variable using the gradient descent with momentum opti
 ## `7-RMSProp.py`
 
 A function that updates a variable using the RMSProp optimization algorithm.
+
+## `9-Adam.py`
+
+A function that updates a variable using the Adam optimization algorithm.
+
