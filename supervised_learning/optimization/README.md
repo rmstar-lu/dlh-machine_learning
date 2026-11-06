@@ -24,3 +24,7 @@ A function that calculates the weighted moving average of a data set using bias 
 ## `5-momentum.py`
 
 A function that updates a variable using the gradient descent with momentum optimization algorithm.
+
+## `7-RMSProp.py`
+
+A function that updates a variable using the RMSProp optimization algorithm.
