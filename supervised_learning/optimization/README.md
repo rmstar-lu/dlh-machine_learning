@@ -61,3 +61,8 @@ A function that updates the learning rate using inverse time decay in numpy.
 ## `12-learning_rate_decay.py`
 
 A function that creates an inverse time decay learning rate scheduler in tensorflow.
+
+## `13-batch_norm.py`
+
+A function that normalizes a pre-activation of a neural network using batch normalization.
+
