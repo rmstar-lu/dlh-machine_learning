@@ -42,6 +42,10 @@ the one in 5-momentum.py:
 
 A function that updates a variable using the RMSProp optimization algorithm.
 
+## `8-RMSProp.py`
+
+A function that creates a RMSProp optimizer in tensorflow.
+
 ## `9-Adam.py`
 
 A function that updates a variable using the Adam optimization algorithm.
