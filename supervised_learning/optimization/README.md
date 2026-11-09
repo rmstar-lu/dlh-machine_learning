@@ -50,6 +50,10 @@ A function that creates a RMSProp optimizer in tensorflow.
 
 A function that updates a variable using the Adam optimization algorithm.
 
+## `10-Adam.py`
+
+A function that creates an Adam optimizer in tensorflow.
+
 ## `11-learning_rate_decay.py`
 
 A function that updates the learning rate using inverse time decay in numpy.
