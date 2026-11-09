@@ -23,7 +23,20 @@ A function that calculates the weighted moving average of a data set using bias 
 
 ## `5-momentum.py`
 
-A function that updates a variable using the gradient descent with momentum optimization algorithm.
+A function that updates a variable using the gradient descent with momentum optimization algorithm:
+```
+    v = beta1 * v + (1 - beta1) * grad
+    weight -= alpha * v
+```
+
+## `6-momentum.py`
+
+A function that creates a momentum optimizer in tensorflow. Note the update rule used here is different to
+the one in 5-momentum.py:
+```
+    v = beta1 * v - alpha * grad
+    weight += v
+```
 
 ## `7-RMSProp.py`
 
