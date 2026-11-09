@@ -66,3 +66,7 @@ A function that creates an inverse time decay learning rate scheduler in tensorf
 
 A function that normalizes a pre-activation of a neural network using batch normalization.
 
+## `14-batch_norm.py`
+
+A function that creates a batch normalization layer for a neural network in tensorflow.
+
