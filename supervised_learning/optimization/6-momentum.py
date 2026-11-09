@@ -11,7 +11,7 @@ Returns: optimizer
 import tensorflow as tf
 
 
-def create_momentum_op(alpha, beta1): 
+def create_momentum_op(alpha, beta1):
     """ Create a momentum optimizer """
     return tf.keras.optimizers.SGD(
         learning_rate=alpha,
