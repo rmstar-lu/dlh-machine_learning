@@ -27,8 +27,7 @@ def create_batch_norm_layer(prev, n, activation):
     )(prev)
 
     # using the keras BatchNormalization layer returns different numbers, why?
-    mu = tf.reduce_mean(Z, axis=0, keepdims=True)
-    variance = tf.reduce_mean(tf.square(Z - mu), axis=0, keepdims=True)
+    mu, variance = tf.nn.moments(Z, [0], keepdims=True)
 
     gamma = tf.Variable(tf.ones_like(mu), trainable=True)
     beta = tf.Variable(tf.zeros_like(mu), trainable=True)
