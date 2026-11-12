@@ -4,7 +4,7 @@
 
 ## Feature Scaling
 
-Features need to be rescaled to get similar absolute values. Otherwise large numerical differences will dominate squared distances, e.g. body mass will dominate other measurements in the penguin data.
+Features often need to be rescaled to get similar absolute values. Otherwise large numerical differences will dominate squared distances, e.g. body mass will dominate other measurements in the penguin data.
 
 This is a pre-processing/data quality kind of operation which applies to all distance- or similarity-based algorithms and algorithms assuming normally distributed features.
 
@@ -12,7 +12,7 @@ E.g., KNN (k nearest neighbours) depends on Euclidean distance so needs features
 
 PCA (principal component analysis), being variance-based, needs all features to be 0-centered and have equal magnitudes and therefore variances.
 
-Gradient descent in neural networks will converge faster with normalization because without it the step will be too high for low-magnitude features and too small for high-magnitude features. Normalizing will make the loss function topology more spherical when it is an elongated ellipsoid. See batch normalization below for details.
+Gradient descent in neural networks will converge faster with normalization. Without normalization the step will be too high for low-magnitude features and too small for high-magnitude features. Normalizing will make the loss function topology more spherical when it is an elongated ellipsoid. See batch normalization below for details.
 
 Note that tree-based methods or LDA (linear discriminant analysis) do not need feature scaling as they respect different feature scales by design.
 
@@ -63,14 +63,13 @@ Then the $Z'$ are re-scaled by *learned* parameters $\gamma$ and $\beta$ (vector
 
 $$\tilde{Z} = \gamma Z' + \beta$$
 
-
 which is then fed instead of $Z$ into the activation function.
 
-In return, one can do without the bias parameter in the neural network layer, because it is subtracted away and replaced by $\beta$.
+In return, one can do without the bias parameter in the neural network layer, because it has been subtracted away and replaced by $\beta$.
 
 During inference, it is not possible to compute $\mu$ and $\sigma^2$ since there is usually only one sample available.
 
-Instead, one uses an exponential moving average of $\mu$ and $\sigma^2$ initialized during training and adjusted during inference.
+Instead, one uses an exponential moving average of $\mu$ and $\sigma^2$ computed during training which is then adjusted online during inference.
 
 ## Gradient descent
 
@@ -110,7 +109,6 @@ or, similarly (as done by Keras):
 $$v_t = \beta v_{t-1} - \eta \cdot \nabla_\theta\cal{L}(\theta)$$
 $$\theta_t = \theta_{t-1} + v_t$$
 
-
 The $\beta$ is typically set to $0.9$ or similar.
 
 This causes the momentum term to increase for dimensions whose gradients point in the direction of the accumulated past updates, and makes it decrease for dimensions where the sign is different. Like rolling a ball down a hill.
@@ -130,7 +128,6 @@ This uses an adaptive learning rate which depends inversely on an EMA of squared
 
 $$s_t = \beta s_{t-1} + (1 - \beta) [ \nabla_\theta\cal{L}(\theta)]^2$$
 $$\theta_t = \theta_{t-1} - \eta \frac{1}{\sqrt{s_t + \epsilon}}\cdot \nabla_\theta\cal{L}(\theta)$$
-
 
 The $\beta$ is typically set to $0.9$, and $\eta$ to $0.001$.
 
