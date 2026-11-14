@@ -4,7 +4,7 @@
 
 ## Feature Scaling
 
-Features need to be rescaled to get similar absolute values. Otherwise large numerical differences will dominate squared distances, e.g. body mass will dominate other measurements in the penguin data.
+Features often need to be rescaled to get similar absolute values. Otherwise large numerical differences will dominate squared distances, e.g. body mass will dominate other measurements in the penguin data.
 
 This is a pre-processing/data quality kind of operation which applies to all distance- or similarity-based algorithms and algorithms assuming normally distributed features.
 
@@ -12,7 +12,7 @@ E.g., KNN (k nearest neighbours) depends on Euclidean distance so needs features
 
 PCA (principal component analysis), being variance-based, needs all features to be 0-centered and have equal magnitudes and therefore variances.
 
-Gradient descent in neural networks will converge faster with normalization because without it the step will be too high for low-magnitude features and too small for high-magnitude features. Normalizing will make the loss function topology more spherical when it is an elongated ellipsoid. See batch normalization below for details.
+Gradient descent in neural networks will converge faster with normalization. Without normalization the step will be too high for low-magnitude features and too small for high-magnitude features. Normalizing will make the loss function topology more spherical when it is an elongated ellipsoid. See batch normalization below for details.
 
 Note that tree-based methods or LDA (linear discriminant analysis) do not need feature scaling as they respect different feature scales by design.
 
@@ -46,8 +46,8 @@ $$Q_2(x') = 0, Q_3(x') - Q_1(x') = 1$$
 
 ### Unit-vector scaling:
 
-$$x' = \frac{x}{||x||}$$
-$$||x'|| = 1$$
+$$x' = \frac{x}{\lVert x\rVert}$$
+$$\lVert x'\rVert = 1$$
 
 ## Batch normalization
 
@@ -56,21 +56,24 @@ This is a technique to make neural networks learn faster because of better loss-
 During training, normalization is applied in the forward-prop phase to the pre-activations $Z$ of a layer, by computing (element-wise)
 
 $$Z' = \frac{Z - \mu}{\sqrt{\sigma^2+\epsilon}}$$
+
 where $\mu$ and $\sigma^2$ are vectors of dimension $d$ (number of outputs) representing the mean and variance of $Z$ by output dimension over the whole current mini-batch.
 
 Then the $Z'$ are re-scaled by *learned* parameters $\gamma$ and $\beta$ (vectors of dimension $d$, initialized to all-one and all-zero respectively) giving
+
 $$\tilde{Z} = \gamma Z' + \beta$$
+
 which is then fed instead of $Z$ into the activation function.
 
-In return, one can do without the bias parameter in the neural network layer, because it is subtracted away and replaced by $\beta$.
+In return, one can do without the bias parameter in the neural network layer, because it has been subtracted away and replaced by $\beta$.
 
 During inference, it is not possible to compute $\mu$ and $\sigma^2$ since there is usually only one sample available.
 
-Instead, one uses an exponential moving average of $\mu$ and $\sigma^2$ initialized during training and adjusted during inference.
+Instead, one uses an exponential moving average of $\mu$ and $\sigma^2$ computed during training which is then adjusted online during inference.
 
 ## Gradient descent
 
-Gradient descent minimizes a loss function $\cal{L}(\theta)$ parameterized by a model's parameters $\theta\in\R^d$ by iteratively updating the parameters in the opposite direction of the gradient $\nabla_\theta\cal{L}(\theta)$.
+Gradient descent minimizes a loss function $\cal{L}(\theta)$ parameterized by a model's parameters $\theta\in ℝ^d$ by iteratively updating the parameters in the opposite direction of the gradient $\nabla_\theta\cal{L}(\theta)$.
 
 The learning rate $\eta$ determines the size of the steps taken.
 
@@ -101,7 +104,8 @@ This is a method that helps to accelerate gradient descent in the relevant direc
 $$v_t = \beta v_{t-1} + (1- \beta)\nabla_\theta\cal{L}(\theta)$$
 $$\theta_t = \theta_{t-1} - \eta \cdot v_t$$
 
-or, similarly (e.g. Keras)
+or, similarly (as done by Keras):
+
 $$v_t = \beta v_{t-1} - \eta \cdot \nabla_\theta\cal{L}(\theta)$$
 $$\theta_t = \theta_{t-1} + v_t$$
 
@@ -110,6 +114,7 @@ The $\beta$ is typically set to $0.9$ or similar.
 This causes the momentum term to increase for dimensions whose gradients point in the direction of the accumulated past updates, and makes it decrease for dimensions where the sign is different. Like rolling a ball down a hill.
 
 One can modify the momentum formula to use "look-ahead" in the calculation of the gradient:
+
 $$v_t = \beta v_{t-1} - \eta \cdot \nabla_\theta\cal{L}(\theta + \beta v_{t-1})$$
 $$\theta_t = \theta_{t-1} + v_t$$
 
@@ -141,6 +146,7 @@ $$\hat{v}_t = \frac{v_t}{1 - {\beta_1}^t}$$
 $$\hat{s}_t = \frac{s_t}{1 - {\beta_2}^t}$$
 
 The update rule is:
+
 $$\theta_t = \theta_{t-1} - \eta \frac{1}{\sqrt{\hat{s}_t}+\epsilon}\hat{v}_t $$
 
 The authors propose $\beta_1=0.9$, $\beta_2 = 0.999$ and $\epsilon=10^{-8}$.
@@ -150,9 +156,11 @@ The authors propose $\beta_1=0.9$, $\beta_2 = 0.999$ and $\epsilon=10^{-8}$.
 In gradient descent it is best to start with a higher learning rate $\eta$ and then gradually decrease it to allow the algorithm to "zone in" and eventually converge on a minimum.
 
 This is typically done using a learning rate schedule such as inverse time decay
-$$\eta_{\operatorname{epoch}} = \eta_0\cdot\frac{1}{1 + \operatorname{epoch}\cdot \operatorname{decay}}$$
+
+$$\eta_{\mathit{epoch}} = \eta_0\cdot\frac{1}{1 + \mathit{epoch}\cdot \mathit{decay}}$$
 
 or exponential decay
-$$\eta_{\operatorname{epoch}} = \eta_0\cdot 0.95^{\operatorname{epoch}}$$
+
+$$\eta_{\mathit{epoch}} = \eta_0\cdot 0.95^{\mathit{epoch}}$$
 
 but it could also be done manually.
