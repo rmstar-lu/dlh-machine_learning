@@ -1,0 +1,326 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2870
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\froman\fcharset0 TimesNewRomanPSMT;
+\f3\fnil\fcharset0 AppleSymbols;\f4\fmodern\fcharset0 Courier;\f5\fnil\fcharset0 LucidaGrande;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat0\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww31120\viewh22560\viewkind0
+\deftab720
+\pard\pardeftab720\sa298\partightenfactor0
+
+\f0\b\fs36 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Why Your Neural Network Trains Slowly: Scaling, Normalization and Smarter Optimizers\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 {{\NeXTGraphic optimizers_header.png \width10080 \height10080 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 Training a neural network means walking downhill on a loss surface. How fast you get to the bottom depends on how the data is prepared and how each step is chosen. This post covers seven techniques that make that walk faster and more stable: feature scaling, batch normalization, mini-batch gradient descent, momentum, RMSProp, Adam and learning rate decay.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 1. Feature scaling\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\fs24 \cf0 The problem.
+\f1\b0  Features often live on very different scales. In the Palmer penguins dataset, body mass is measured in thousands of grams, while bill length is a few tens of millimetres. In any squared distance, body mass dominates.\
+
+\f0\b The fix.
+\f1\b0  Rescale features before fitting, and apply exactly the same transformation to the test data.\
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1926\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2880\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth1721\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+
+\f0\b \cf0 Method\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf0 Formula\cell 
+\pard\intbl\itap1\pardeftab720\qc\partightenfactor0
+\cf0 Result\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1926\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2880\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth1721\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Standardisation\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 x\'92 = (x \uc0\u8722  \u956 ) / \u963 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 mean 0, std 1\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1926\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2880\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth1721\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Mean normalisation\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 x\'92 = (x \uc0\u8722  mean) / (max \u8722  min)\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 in [\uc0\u8722 1, 1], mean 0\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1926\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2880\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth1721\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Min-max scaling\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 x\'92 = (x \uc0\u8722  min) / (max \u8722  min)\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 in [0, 1]\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1926\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2880\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth1721\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Robust scaling\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 x\'92 = (x \uc0\u8722  median) / (Q3 \u8722  Q1)\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 median 0, IQR 1\cell \row
+
+\itap1\trowd \taflags0 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
+\clvertalc \clshdrawnil \clwWidth1926\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx2880
+\clvertalc \clshdrawnil \clwWidth2880\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx5760
+\clvertalc \clshdrawnil \clwWidth1721\clftsWidth3 \clmart10 \clmarl10 \clmarb10 \clmarr10 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl20 \clpadb20 \clpadr20 \gaph\cellx8640
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 Unit-vector scaling\cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 x\'92 = x / 
+\f2 \uc0\u8214 
+\f1 x
+\f2 \uc0\u8214 
+\f1 \cell 
+\pard\intbl\itap1\pardeftab720\partightenfactor0
+\cf0 length 1\cell \lastrow\row
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 Who needs it
+\f1\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 KNN uses Euclidean distance, so unscaled features distort which neighbours count as near.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 PCA is variance-based, so it needs centered features of comparable magnitude.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Gradient descent converges faster on scaled data. Without scaling, steps are too big for small-magnitude features and too small for large ones. Scaling turns an elongated ellipsoidal loss surface into a more spherical one.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Tree-based methods and LDA don\'92t need scaling.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 Pros:
+\f1\b0  faster convergence, fairer distances, simple to implement.\uc0\u8232 
+\f0\b Cons:
+\f1\b0  you must fit the scaler on training data only and reuse it on test data. Min-max and mean normalisation are sensitive to outliers; robust scaling handles them better. Standardisation assumes roughly normal features.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 2. Batch normalization\
+
+\f1\b0\fs24 Feature scaling fixes the inputs, but the inputs to hidden layers shift as the weights change. Batch normalization applies the same idea inside the network.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 How it works.
+\f1\b0  During training, for each layer\'92s pre-activations Z, you compute the mean \uc0\u956  and variance \u963 \'b2 per output over the current mini-batch and normalize:\
+Z\'92 = (Z \uc0\u8722  \u956 ) / \u8730 (\u963 \'b2 + \u949 )\
+Then you rescale with two 
+\f0\b learned
+\f1\b0  parameters, \uc0\u947  (initialized to 1) and \u946  (initialized to 0):\
+\uc0\u90 \u771  = \u947 \'b7Z\'92 + \u946 \
+\uc0\u90 \u771  goes into the activation function. The network can still undo the normalization if that works better.\
+
+\f0\b Inference.
+\f1\b0  At prediction time you often have just one sample, so batch statistics aren\'92t available. Instead you use an exponential moving average of \uc0\u956  and \u963 \'b2 collected during training.\
+
+\f0\b Pros:
+\f1\b0  faster learning, more uniform gradients, a small regularization effect, and no need for a separate bias term (\uc0\u946  replaces it).\u8232 
+\f0\b Cons:
+\f1\b0  it depends on batch size (tiny batches give noisy statistics), and training and inference behave differently, which is a common source of bugs.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 3. Mini-batch gradient descent\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 Gradient descent updates parameters against the gradient of the loss:\
+\uc0\u952  
+\f2 \uc0\u8592 
+\f1  \uc0\u952  \u8722  \u951  \'b7 
+\f3 \uc0\u8711 
+\f1 L(\uc0\u952 )\
+The question is how much data to use per update.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Batch GD
+\f1\b0  uses the whole dataset for each step. The gradients are exact, but it is slow, can exceed memory, and can\'92t learn online.\
+\ls2\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Stochastic GD (SGD)
+\f1\b0  uses one example per step. It is fast, but updates are very noisy and the loss fluctuates wildly. That noise can help escape poor local minima.\
+\ls2\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Mini-batch GD
+\f1\b0  uses n examples per step (
+\f4\fs26 batch_size
+\f1\fs24 , often 32 to 256), drawn from a reshuffled training set each epoch.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 Example.
+\f1\b0  With 10,000 examples and batch size 100, one epoch is 100 parameter updates, instead of 1 for batch GD or 10,000 for SGD.\
+
+\f0\b Pros:
+\f1\b0  much lower update variance than SGD, so more stable convergence, and it vectorizes well on GPUs.\uc0\u8232 
+\f0\b Cons:
+\f1\b0  you have one more hyperparameter to tune, and some noise remains.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 4. Momentum\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 Vanilla gradient descent can get stuck in local minima and struggles in 
+\f0\b ravines
+\f1\b0  where it may zig-zag across the walls and make slow progress along the floor.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 Idea:
+\f1\b0  keep an exponential moving average of past gradients, like a ball rolling downhill.\
+v 
+\f2 \uc0\u8592 
+\f1  \uc0\u946 \'b7v + (1 \u8722  \u946 )\'b7
+\f3 \uc0\u8711 
+\f1 L(\uc0\u952 )\u8232 \u952  
+\f2 \uc0\u8592 
+\f1  \uc0\u952  \u8722  \u951 \'b7v\
+\uc0\u946  is typically 0.9. (Keras uses an equivalent form: v 
+\f2 \uc0\u8592 
+\f1  \uc0\u946 \'b7v \u8722  \u951 \'b7
+\f3 \uc0\u8711 
+\f1 L, then \uc0\u952  
+\f2 \uc0\u8592 
+\f1  \uc0\u952  + v.)\
+Gradient components that keep pointing the same way build up speed. Components that flip sign cancel out, which damps the zig-zag.\
+
+\f0\b Nesterov momentum
+\f1\b0  evaluates the gradient at a \'93look-ahead\'94 position, \uc0\u952  + \u946 \'b7v, which corrects course earlier.\
+
+\f0\b Pros:
+\f1\b0  faster progress along ravines, can escape local minima.\uc0\u8232 
+\f0\b Cons:
+\f1\b0  one more hyperparameter, and it can overshoot the minimum.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 5. RMSProp\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 Introduced by Geoff Hinton in his Coursera course. Instead of smoothing the gradient, RMSProp adapts the 
+\f0\b learning rate per parameter
+\f1\b0 .\
+s 
+\f2 \uc0\u8592 
+\f1  \uc0\u946 \'b7s + (1 \u8722  \u946 )\'b7(
+\f3 \uc0\u8711 
+\f1 L)\'b2\uc0\u8232 \u952  
+\f2 \uc0\u8592 
+\f1  \uc0\u952  \u8722  \u951  \'b7 
+\f3 \uc0\u8711 
+\f1 L / \uc0\u8730 (s + \u949 )\
+It divides each gradient by a running average of its recent size. Parameters with consistently large gradients, such as the steep direction of a ravine, get smaller steps, and parameters with small gradients get relatively larger ones. Typical values are \uc0\u946  = 0.9 and \u951  = 0.001.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 Pros:
+\f1\b0  handles differently scaled gradients automatically and is a good default for many problems.\uc0\u8232 
+\f0\b Cons:
+\f1\b0  the learning rate still needs tuning, and there is no momentum or bias correction.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 6. Adam\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 Adaptive moment estimation (Kingma and Ba, 2015) combines momentum and RMSProp. It keeps moving averages of both the gradient (first moment) and the squared gradient (second moment):\
+v 
+\f2 \uc0\u8592 
+\f1  \uc0\u946 
+\f5 \uc0\u8321 
+\f1 \'b7v + (1 \uc0\u8722  \u946 
+\f5 \uc0\u8321 
+\f1 )\'b7
+\f3 \uc0\u8711 
+\f1 L\uc0\u8232 s 
+\f2 \uc0\u8592 
+\f1  \uc0\u946 
+\f5 \uc0\u8322 
+\f1 \'b7s + (1 \uc0\u8722  \u946 
+\f5 \uc0\u8322 
+\f1 )\'b7(
+\f3 \uc0\u8711 
+\f1 L)\'b2\
+Because both start at zero, they are biased early on, so Adam applies bias correction:\
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \outl0\strokewidth0 \uc0\u118 \u770  = v / (1 \u8722  \u946 
+\f5 \uc0\u8321 \u7511 
+\f1 )\uc0\u8232 \u349  = s / (1 \u8722  \u946 
+\f5 \uc0\u8322 \u7511 
+\f1 )\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sa240\partightenfactor0
+\cf0 \uc0\u952  
+\f2 \uc0\u8592 
+\f1  \uc0\u952  \u8722  \u951  \'b7 \u118 \u770  / (\u8730 \u349  + \u949 )\
+The authors suggest \uc0\u946 
+\f5 \uc0\u8321 
+\f1  = 0.9, \uc0\u946 
+\f5 \uc0\u8322 
+\f1  = 0.999 and \uc0\u949  = 10
+\f5 \uc0\u8315 \u8312 
+\f1 . A good mental picture is a heavy ball with friction, which tends to settle into flat minima.\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 Pros:
+\f1\b0  works well with little tuning and handles noisy gradients and differently scaled parameters.\uc0\u8232 
+\f0\b Cons:
+\f1\b0  two hyperparameters, tends to overshoot more than RMSProp, and the learning rate still matters.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 7. Learning rate decay\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 A large learning rate gets you moving quickly, but near a minimum it makes you bounce around. Learning rate decay starts high and shrinks the step size over time so the optimizer can settle.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Inverse time decay:
+\f1\b0  \uc0\u951  = \u951 
+\f5 \uc0\u8320 
+\f1  / (1 + epoch \'b7 decay)\
+\ls3\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Exponential decay:
+\f1\b0  \uc0\u951  = \u951 
+\f5 \uc0\u8320 
+\f1  \'b7 0.95^epoch\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f0\b \cf0 Example.
+\f1\b0  With \uc0\u951 
+\f5 \uc0\u8320 
+\f1  = 0.1 and exponential decay, the rate is about 0.06 after 10 epochs and about 0.035 after 20.\
+
+\f0\b Pros:
+\f1\b0  fast early progress and more precise convergence at the end.\uc0\u8232 
+\f0\b Cons:
+\f1\b0  the schedule adds hyperparameters, and decaying too fast can stall training before you reach a good minimum.\
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 Putting it together\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0\fs24 \cf0 A typical recipe is to standardize your inputs, use mini-batch training with Adam, add batch normalization to deeper networks, and decay the learning rate as training progresses. Each technique attacks a different cause of slow training, which is why they combine so well.\
+#MachineLearning #DeepLearning #NeuralNetworks #DataScience #Optimization\
+}
