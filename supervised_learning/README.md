@@ -11,4 +11,8 @@ Keras & Tensorflow 2
 
 ## Optimization
 
-Hyperparameter tuning
+Feature scaling, batch normalization, gradient descent optimizers, learning rate decay.
+
+## Error analysis
+
+Confusion matrix, sensitivity, specificity, precision, F1 score
