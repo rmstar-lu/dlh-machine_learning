@@ -16,3 +16,7 @@ A function that calculates the precision for each class in a confusion matrix.
 ## `3-specificity.py`
 
 A function that calculates the specificity for each class in a confusion matrix.
+
+## `4-f1_score.py`
+
+A function that calculates the F1 score for each class in a confusion matrix.
