@@ -16,6 +16,6 @@ import numpy as np
 
 def specificity(confusion):
     """ Calculate the specificity for each class in a confusion matrix """
-    total_neg = confusion.sum() - np.sum(confusion, axis=1)
-    true_neg = total_neg - np.sum(confusion, axis=0) + np.diag(confusion)
-    return true_neg / total_neg
+    actual_neg = confusion.sum() - np.sum(confusion, axis=1)
+    true_neg = actual_neg - np.sum(confusion, axis=0) + np.diag(confusion)
+    return true_neg / actual_neg
