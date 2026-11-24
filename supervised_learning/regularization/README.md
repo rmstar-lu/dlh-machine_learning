@@ -25,6 +25,10 @@ A function that conducts forward propagation using Dropout.
 
 A function that updates the weights and biases on a neural network using gradient descent with Dropout regularization.
 
+## `6-dropout_create_layer.py`
+
+A function that creates a layer of a neural network using dropout in tensorflow.
+
 ## `7-early_stopping.py`
 
 A function that determines if you should stop gradient descent early.
