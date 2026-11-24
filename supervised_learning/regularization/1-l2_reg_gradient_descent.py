@@ -30,9 +30,9 @@ def l2_reg_gradient_descent(Y, weights, cache, alpha, lambtha, L):
     for i in range(L - 1, -1, -1):
         dL_dZ_i = ((weights[f"W{i + 1}"].T @ dL_dZ_i_plus_1)
                    * dTanh_dZ(cache[f"A{i}"]))
-        weights[f"W{i + 1}"] *= 1 - alpha * lambtha / m
         weights[f"W{i + 1}"] -= \
-            alpha * ((dL_dZ_i_plus_1 / m) @ cache[f"A{i}"].T)
+            alpha * ((dL_dZ_i_plus_1 / m) @ cache[f"A{i}"].T +
+                     (lambtha / m) * weights[f"W{i+1}"])
         weights[f"b{i + 1}"] -= \
             alpha * dL_dZ_i_plus_1.mean(axis=1, keepdims=True)
         dL_dZ_i_plus_1 = dL_dZ_i
