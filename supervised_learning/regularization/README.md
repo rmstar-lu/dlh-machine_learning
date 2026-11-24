@@ -21,6 +21,10 @@ A function that creates a neural network layer in tensorFlow that includes L2 re
 
 A function that conducts forward propagation using Dropout.
 
+## `5-dropout_gradient_descent.py`
+
+A function that updates the weights and biases on a neural network using gradient descent with Dropout regularization.
+
 ## `7-early_stopping.py`
 
 A function that determines if you should stop gradient descent early.
