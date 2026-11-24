@@ -12,3 +12,7 @@ A function that updates the weights and biases of a neural network using gradien
 ## `4-dropout_forward_prop.py`
 
 A function that conducts forward propagation using Dropout.
+
+## `7-early_stopping.py`
+
+A function that determines if you should stop gradient descent early.
