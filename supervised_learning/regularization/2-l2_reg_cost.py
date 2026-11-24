@@ -13,10 +13,4 @@ import tensorflow as tf
 
 def l2_reg_cost(cost, model):
     """ Calculate the cost of a neural network with L2 regularization """
-    l2_cost = []
-    for layer in model.layers:
-        if hasattr(layer, "kernel_regularizer") and \
-                layer.kernel_regularizer is not None:
-            l2_cost.append(layer.kernel_regularizer.l2 *
-                           tf.reduce_sum(tf.square(layer.weights[0])))
-    return tf.add(cost, tf.convert_to_tensor(l2_cost, dtype='float32'))
+    return cost + model.losses
