@@ -9,6 +9,10 @@ A function that calculates the cost of a neural network with L2 regularization.
 
 A function that updates the weights and biases of a neural network using gradient descent with L2 regularization.
 
+## `2-l2_reg_cost.py`
+
+A function that calculates the cost of a neural network with L2 regularization as a tensor.
+
 ## `4-dropout_forward_prop.py`
 
 A function that conducts forward propagation using Dropout.
